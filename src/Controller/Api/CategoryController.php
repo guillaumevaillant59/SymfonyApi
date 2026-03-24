@@ -2,14 +2,13 @@
 
 namespace App\Controller\Api;
 
-use App\DTO\CategoryDto;
+
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
 use App\Mapper\CategoryMapper;
 use App\Mapper\ProductMapper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('api/category', name: 'api_category')]
