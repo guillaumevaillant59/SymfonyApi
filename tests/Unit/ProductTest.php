@@ -6,8 +6,7 @@ use App\Entity\Image;
 use App\Entity\Product;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Vich\UploaderBundle\Entity\File;
-use Vich\UploaderBundle\Mapping\Attribute\UploadableField;
+
 
 final class ProductTest extends TestCase
 {
