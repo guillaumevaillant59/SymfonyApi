@@ -2,6 +2,7 @@
 
 namespace App\Tests\Integration;
 
+use App\Entity\Image;
 use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -19,10 +20,20 @@ class ProductDoctrineTest extends KernelTestCase
         $product->setIsActive(true);
         $product->setStock(true);
 
+        $image = new Image();
+        $image->setName('test.jpg');
+        $product->addImage($image);
+
         $em->persist($product);
         $em->flush();
 
+        $repo = $em->getRepository(Product::class);
+        $found = $repo->find($product->getId());
+
         $this->assertNotNull($product->getId());
+        $this->assertNotNull($image->getId());
+        $this->assertSame('Produit test', $found->getName());
+
         // $myCustomService = static::getContainer()->get(CustomService::class);
     }
 }
