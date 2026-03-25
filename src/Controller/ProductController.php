@@ -32,12 +32,12 @@ final class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $files = $form->get('imagesFiles')->getData();
-            foreach ($files as $file) {
-                $image = new Image(); 
-                $image->setImageFile($file);
-                $product->addImage($image);               
-            }
+            // $files = $form->get('imagesFiles')->getData();
+            // foreach ($files as $file) {
+            //     $image = new Image(); 
+            //     $image->setImageFile($file);
+            //     $product->addImage($image);               
+            // }
             $entityManager->persist($product);
             $entityManager->flush();
 

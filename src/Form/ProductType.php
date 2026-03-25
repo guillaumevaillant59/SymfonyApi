@@ -19,18 +19,18 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('description')
+            // ->add('description')
             ->add('isActive')
             ->add('stock')
-            ->add('category', EntityType::class, [
-                'class' => Category::class,
-                'choice_label' => 'name',
-            ])
-            ->add('imagesFiles', FileType::class, [
-                'label' => "Images",
-                'mapped' => false,
-                'multiple' => true
-            ])
+        //     ->add('category', EntityType::class, [
+        //         'class' => Category::class,
+        //         'choice_label' => 'name',
+        //     ])
+        //     ->add('imagesFiles', FileType::class, [
+        //         'label' => "Images",
+        //         'mapped' => false,
+        //         'multiple' => true
+        //     ])
         ;
     }
 
