@@ -1,0 +1,35 @@
+name: Symfony CI/CD
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: democatalogue
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_USER: symfony
+          MYSQL_PASSWORD: symfony
+        ports:
+          - 3309:3306
+        options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          extensions: mbstring, pdo_mysql
+      - name: Install dependencies
+        run: composer install
+      - name: Run tests
+        env:
+          DATABASE_URL: mysql://symfony:symfony@localhost:3306/democatalogue
+          MAILER_DSN: "smtp://localhost:1025"
+        run: php bin/phpunit --testdox

@@ -31,3 +31,9 @@ services:
       - database
     ports:
       - "7851:8978"
+
+  mailer:
+    image: axllent/mailpit
+    ports:
+      - "1025:1025"
+      - "8025:8025"
