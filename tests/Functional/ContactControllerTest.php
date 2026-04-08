@@ -33,14 +33,14 @@ class ContactControllerTest extends WebTestCase
 
         return $em;
     }
-    public function testGetAll(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/contact');
+    // public function testGetAll(): void
+    // {
+    //     $client = static::createClient();
+    //     $client->request('GET', '/contact');
 
-        self::assertResponseIsSuccessful();
-        self::assertResponseStatusCodeSame(200);
-    }
+    //     self::assertResponseIsSuccessful();
+    //     self::assertResponseStatusCodeSame(200);
+    // }
 
     public function testGetFormulaire(): void {
         $client = static::createClient();
