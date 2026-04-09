@@ -17,7 +17,7 @@ final class MailController extends AbstractController{
                 ->to('test@exemple.com')            
                 ->subject('Bonjour depuis Symfony !')            
                 ->text('Ceci est un email de test.')
-                ->html('<h2>Bonjour</h2>');
+                ->html('<h2>Bonjour vous !</h2>');
             $mailer->send($email);
             return new Response("Email envoyé !");    
     }
