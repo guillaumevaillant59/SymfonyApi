@@ -14,8 +14,6 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_USER: symfony
           MYSQL_PASSWORD: symfony
-        ports:
-          - 3309:3306
         options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
@@ -34,6 +32,6 @@ jobs:
           php bin/console doctrine:migrations:migrate --no-interaction --env=test
       - name: Run tests
         env:
-          DATABASE_URL: mysql://symfony:symfony@127.0.0.1:3309/democatalogue_test
+          DATABASE_URL: mysql://symfony:symfony@127.0.0.1:3306/democatalogue_test
           MAILER_DSN: "smtp://127.0.0.1:1025"
         run: php bin/phpunit --testdox
