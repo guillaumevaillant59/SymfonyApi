@@ -18,3 +18,9 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+/tests/Functional/ProductControllerTest.php/
+/tests/Functional/ContactControllerTest.php/
+/tests/Integration/ProductControllerTest.php/
+/tests/Integration/ContactControllerTest.php/
+/tests/Unit/ProductTest.php/
+/tests/Unit/ContactTest.php/
