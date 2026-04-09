@@ -30,6 +30,6 @@ jobs:
         run: composer install
       - name: Run tests
         env:
-          DATABASE_URL: mysql://symfony:symfony@localhost:3306/democatalogue
-          MAILER_DSN: "smtp://localhost:1025"
+          DATABASE_URL: mysql://symfony:symfony@127.0.0.1:3309/democatalogue
+          MAILER_DSN: "smtp://127.0.0.1:1025"
         run: php bin/phpunit --testdox
