@@ -26,6 +26,13 @@ jobs:
           extensions: mbstring, pdo_mysql      
       - name: Install dependencies
         run: composer install
+      - name: Wait for MySQL
+        run: |
+          for i in {1..10}; do
+            mysql -h 127.0.0.1 -u symfony -psymfony -e "SELECT 1" && break
+            echo "Waiting for MySQL..."
+            sleep 5
+          done
       - name: Prepare database
         run: |
           php bin/console doctrine:database:create --env=test
