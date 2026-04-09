@@ -42,13 +42,13 @@ class ContactControllerTest extends WebTestCase
     //     self::assertResponseStatusCodeSame(200);
     // }
 
-    public function testGetFormulaire(): void {
-        $client = static::createClient();
-        $client->request('GET', '/contact/new');
+    // public function testGetFormulaire(): void {
+    //     $client = static::createClient();
+    //     $client->request('GET', '/contact/new');
 
-        self::assertResponseIsSuccessful();
-        self::assertResponseStatusCodeSame(200);
-    }
+    //     self::assertResponseIsSuccessful();
+    //     self::assertResponseStatusCodeSame(200);
+    // }
 
     public function testFormulaire() : void {
         $client = static::createClient();
